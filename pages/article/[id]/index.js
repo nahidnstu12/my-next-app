@@ -1,11 +1,18 @@
 import Link from "next/link"
+import { useRouter } from 'next/router'
 import styles from '../../../styles/Article.module.css'
 
 const article = ({article}) => {
-    console.log(article)
+    // console.log(article)
+
+    // fetch data fro url
+    const router = useRouter()
+    const {id} = router.query
+    
     return (
         <div className={styles.card}>
-            <h1>{article.title}</h1>
+            <h2>post - {id}</h2>
+            <h3>{article.title}</h3>
             <p>{article.body}</p>
             <br />
             <Link href="/">Go Back</Link>

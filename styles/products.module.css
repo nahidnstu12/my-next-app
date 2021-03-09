@@ -1,0 +1,17 @@
+.product_rows{
+    display: flex;
+    /* justify-content: space-between; */
+    /* flex-direction: row; */
+}
+.img{
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-right: 25px;
+}
+.fullImg{
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    margin: auto;
+}

@@ -1,4 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# my gitignore
+product.json
 
 # dependencies
 /node_modules
