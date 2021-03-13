@@ -20,6 +20,11 @@ const Nav = () => {
             <a>Products</a>
           </Link>
         </li>
+        <li>
+          <Link href='/profile'>
+            <a>Profile</a>
+          </Link>
+        </li>
       </ul>
     </nav>
   )
