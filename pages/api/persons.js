@@ -1,7 +1,31 @@
-export default function getAllPersons(req,res){
-    if(req.method !== 'GET'){
-        res.status(500).json({message:"Sorry, we only expect GET method"})
+import sqlite3 from 'sqlite3';
+import {open} from 'sqlite';
 
-    }
-    res.json([{name:"Nahid"},{name:"Asik"},{name:"sony"}])
+export default async function getAllPersons(req,res){
+    const db = await open({
+        filename: './mydb.sqlite',
+        driver: sqlite3.Database
+    });
+
+    if(req.method === 'POST'){
+       await db.run('insert into person (name , email) values (?,?)',[req.body.name,req.body.email])
+      // const res = stmt.run(req.body.name,req.body.email)
+      // res.finalize()
+  }
+
+    const people = await db.all("SELECT * FROM person");
+    res.json(JSON.stringify(people))
+
+  
 }
+
+/**
+let res = await fetch('http://localhost:3000/api/persons',{
+method:'POST',
+headers:{
+    'Content-Type':'application/json'
+},
+body:JSON.stringify({name:'Sabrina',email:'nitu@gm.com'})
+})
+
+ */
