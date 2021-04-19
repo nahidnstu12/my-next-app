@@ -2,14 +2,15 @@
   "name": "my-next-app",
   "version": "0.1.0",
   "private": true,
-
   "scripts": {
     "dev": "node ./database.test.mjs && next dev",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "bootstrap": "^4.6.0",
+    "jsonwebtoken": "^8.5.1",
     "next": "10.0.8",
     "react": "17.0.1",
     "react-dom": "17.0.1",
