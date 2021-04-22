@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link'
 import styles from '../styles/products.module.css';
 import {twoDecimal} from "../utils/format";
+import { myGet } from '../utils/myGet';
 import {API_URL, fromImageToUrl} from "../utils/url"
 
 const product = ({products}) => {
@@ -35,15 +36,26 @@ const product = ({products}) => {
 
 export default product;
 
-export const getStaticProps = async() => {
-    const res = await fetch(`${API_URL}/products`)
-    const products = await res.json()
-
-    // console.log("products " + products)
-
-    return {
-        props:{
-            products
-        }
-    }
+product.getInitialProps = async (ctx) => {
+  const json = await myGet(`${API_URL}/products`,ctx)
+  return {products:json}
 }
+// export const getStaticProps = async(ctx) => {
+//   // const json = await myGet(`${API_URL}/products`,ctx)
+//   // return {products:json}
+//     const resp = await fetch(`${API_URL}/products`)
+//     const products = await resp.json()
+
+//     // if(resp.status === 401 && ctx.req){
+//     //   ctx.res.writeHead(302,{
+//     //     Location: 'http://localhost:3000/login'
+//     //   })
+//     //   ctx.res.end()
+//     //   return;
+//     // }
+//     return {
+//         props:{
+//             products
+//         }
+//     }
+// }

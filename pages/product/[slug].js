@@ -5,7 +5,7 @@ import { twoDecimal } from '../../utils/format';
 import { API_URL,fromImageToUrl } from '../../utils/url';
 
 const Product = ({ product }) => {
-
+console.log(product)
   return (
     <div>
       <Head>
@@ -44,7 +44,8 @@ export async function getStaticProps({ params: { slug } }) {
 export const getStaticPaths = async () => {
   const res = await fetch(`${API_URL}/products/`);
   const products = await res.json();
-  const product = products.map((product) => ({
+  console.log("path :"+products)
+  const product =Object.keys(products).length > 0 && products.map((product) => ({
     params: { slug: String(product.slug) },
   }));
     // console.log(product)

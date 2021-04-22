@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 
 const About = () =>{
     return (
@@ -6,7 +7,10 @@ const About = () =>{
             <Head>
                 <title>About</title>
             </Head>
-            <h3>This is about page</h3>
+            <h3>This is Info page</h3>
+            <Link href="/persons">Persons Lists</Link>
+            <br/>
+            <Link href="/vehicles">Vehicles Lists</Link>
         </div>
     )
 }

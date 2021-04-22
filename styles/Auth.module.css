@@ -1,0 +1,40 @@
+.container{
+    padding: 40px;
+    background: #efefef;
+    width: 110%;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.inputField{
+    padding: 7px;
+    margin: 5px 0;
+    outline: none;
+    width: 100%;
+}
+.submit{
+    background: #1be8b9;
+    padding: 7px;
+    border: none;
+    width: 100%;
+    outline: none;
+    cursor: pointer;
+
+}
+.change{
+    text-decoration: underline;
+    padding: 4px;
+    cursor: pointer;
+}
+.info{
+    background: #70b8ea;
+    color:#842270;
+    margin-top: 21px;
+    padding: 9px;
+}
+.info p{
+    padding: 7px;
+}
